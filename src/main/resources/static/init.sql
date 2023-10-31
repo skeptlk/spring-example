@@ -1,9 +1,4 @@
 
-DROP TABLE BOOK;
-DROP TABLE AUTHOR;
-DROP TABLE LIBRARY;
-
-
 CREATE TABLE IF NOT EXISTS BOOK (
     id SERIAL PRIMARY KEY,
     title VARCHAR(256),
@@ -13,6 +8,9 @@ CREATE TABLE IF NOT EXISTS BOOK (
     is_assigned BOOLEAN
 );
 
+INSERT INTO BOOK (title,description,author_id,library_id,is_assigned) VALUES
+	 ('Java for the impatient','A rapid introduction to the good parts of Java for competent programmers',1,1,false),
+	 ('Microservices Patterns','A comprehensive overview of the challenges teams face when moving to microservices, with industry-tested solutions to these problems',2,1,false);
 
 CREATE TABLE IF NOT EXISTS AUTHOR (
     id SERIAL PRIMARY KEY,

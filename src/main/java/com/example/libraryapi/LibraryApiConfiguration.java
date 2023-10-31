@@ -13,8 +13,8 @@ public class LibraryApiConfiguration {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUsername("postgres");
-        dataSource.setPassword("");
+        dataSource.setUsername("foo");
+        dataSource.setPassword("pass");
         dataSource.setUrl(
                 "jdbc:postgresql://localhost:5432/postgres");
 
