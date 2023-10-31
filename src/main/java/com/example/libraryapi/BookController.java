@@ -2,6 +2,7 @@ package com.example.libraryapi;
 
 
 import com.example.libraryapi.model.Book;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -40,6 +41,7 @@ public class BookController {
         return bookRepository.save(book);
     }
 
+    @Operation(summary = "Mark book as assigned if not assigned, throw an error otherwise")
     @PutMapping(path="/{id}/assign", produces = "application/json")
     public Book assignBook(@PathVariable Long id) {
         var book = bookRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
@@ -51,6 +53,7 @@ public class BookController {
         }
     }
 
+    @Operation(summary = "Mark book as not assigned")
     @PutMapping(path="/{id}/unassign", produces = "application/json")
     public Book unAssignBook(@PathVariable Long id) {
         var book = bookRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
